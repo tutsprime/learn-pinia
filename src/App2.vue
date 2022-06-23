@@ -3,6 +3,9 @@
 
     <button @click="cart.qty--">-</button>
     <button @click="cart.qty++">+</button>
+
+    <br>
+    <button @click="changeProduct">Change product</button>
 </template>
 
 <script>
@@ -11,7 +14,16 @@ export default {
   setup () {
     const cart = useSingleCartStore()
 
-    return { cart }
+    const randomNumber = () => Math.floor(Math.random() * 10) + 1
+
+    const changeProduct = () => {
+        cart.$patch({
+            name: "Product " + randomNumber(),
+            qty: randomNumber()
+        })
+    }
+
+    return { cart, changeProduct }
   }
 }
 </script>
