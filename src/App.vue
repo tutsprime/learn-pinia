@@ -4,6 +4,14 @@
     <button @click="product.qty--">-</button>
     <button @click="product.qty++">+</button>
   </div>
+  <div v-if="!isEmpty">
+    Items in cart: {{ count }}
+    <br>
+    Total: {{ total }}
+  </div>
+  <p>
+    Hot Product: {{ hotProduct }}
+  </p>
 </template>
 
 <script>
@@ -12,7 +20,7 @@ import { useCartStore } from "./stores/cart"
 
 export default {
   computed: {
-    ...mapState(useCartStore, ['products'])
+    ...mapState(useCartStore, ['products', 'count', 'total', 'isEmpty', 'hotProduct'])
   }
 }
 </script>

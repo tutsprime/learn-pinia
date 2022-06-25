@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { useSingleCartStore } from "./single-cart";
 
 export const useCartStore = defineStore("cartStore", {
     state: () => ({
@@ -18,6 +19,10 @@ export const useCartStore = defineStore("cartStore", {
         },
         isEmpty () {
             return this.count < 1;
+        },
+        hotProduct () {
+            const otherCart = useSingleCartStore();
+            return otherCart.hotProduct
         }
     }
 })

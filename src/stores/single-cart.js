@@ -5,5 +5,10 @@ export const useSingleCartStore = defineStore("singleCartStore", {
         name: "TShirt",
         price: 15,
         qty: 1
-    })
+    }),
+    getters: {
+        hotProduct () {
+            return this.name;
+        }
+    }
 })

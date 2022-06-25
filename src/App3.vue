@@ -4,6 +4,11 @@
     <button @click="product.qty--">-</button>
     <button @click="product.qty++">+</button>
   </div>
+  <div v-if="!cart.isEmpty">
+    Items in cart: {{ cart.count }}
+    <br>
+    Total: {{ cart.total }}
+  </div>
   <button @click="addProduct">Add new product</button>
 </template>
 
