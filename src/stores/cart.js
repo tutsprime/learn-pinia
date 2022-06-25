@@ -24,5 +24,15 @@ export const useCartStore = defineStore("cartStore", {
             const otherCart = useSingleCartStore();
             return otherCart.hotProduct
         }
+    },
+    actions: {
+        async addProduct (product) {
+            await new Promise(resolve => {
+                setTimeout(() => {
+                    this.products.push(product);
+                    resolve();
+                }, 1000);
+            })
+        }
     }
 })

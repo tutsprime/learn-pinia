@@ -12,15 +12,26 @@
   <p>
     Hot Product: {{ hotProduct }}
   </p>
+  <button @click="newProduct">Add new product</button>
 </template>
 
 <script>
-import { mapState, mapWritableState } from 'pinia'
+import { mapState, mapActions } from 'pinia'
 import { useCartStore } from "./stores/cart"
 
 export default {
   computed: {
     ...mapState(useCartStore, ['products', 'count', 'total', 'isEmpty', 'hotProduct'])
+  },
+  methods: {
+    ...mapActions(useCartStore, ['addProduct']),
+    newProduct () {
+      this.addProduct({
+        name: "Product x",
+        qty: 1,
+        price: 10
+      })
+    }
   }
 }
 </script>

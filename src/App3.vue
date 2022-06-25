@@ -22,12 +22,10 @@ export default {
         const randomNumber = () => Math.floor(Math.random() * 10) + 1
 
         const addProduct = () => {
-            cart.$patch(state => {
-                state.products.push({
-                    name: "Product " + randomNumber(),
-                    qty: 1,
-                    price: randomNumber()
-                })
+            cart.addProduct({
+                name: "Product " + randomNumber(),
+                qty: 1,
+                price: randomNumber()
             })
         }
 
